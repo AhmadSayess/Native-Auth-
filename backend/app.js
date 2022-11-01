@@ -3,6 +3,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var cors = require("cors");
+var createError = require("http-errors");
+
 const dotenv = require("dotenv")
 const mongoose = require("mongoose")
 dotenv.config()
@@ -11,6 +14,7 @@ dotenv.config()
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const userRouter = require('./routes/userRoute')
 
     // Connect to the MongoDB cluster
     const mongoAtlasUri = process.env.MONGO_DB;
@@ -27,7 +31,7 @@ var usersRouter = require('./routes/users');
       const dbConnection = mongoose.connection;
       dbConnection.on("error", (err) => console.log(`Connection error ${err}`));
       dbConnection.once("open", () => console.log("Connected to DB!"));
-      
+
 var app = express();
 
 app.use(logger('dev'));
@@ -38,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api/user', userRouter);
 
 // Create error
 app.use(function (req, res, next) {
