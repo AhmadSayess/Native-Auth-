@@ -6,15 +6,13 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-<<<<<<< HEAD
     "bcryptjs": "^2.4.3",
-=======
->>>>>>> 0bd4729f95ecbef149f58a5626613343fb5f3b4e
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "express": "~4.16.1",
+    "express-async-handler": "^1.2.0",
     "express-session": "^1.17.3",
     "http-errors": "^2.0.0",
     "jsonwebtoken": "^8.5.1",
