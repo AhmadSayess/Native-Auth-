@@ -18,6 +18,7 @@ const goalRouter = require("./routes/goalRoutes");
 const userRouter = require("./routes/userRoutes");
 
 var app = express();
+app.use(cors());
 
 app.use(logger("dev"));
 app.use(express.json());
